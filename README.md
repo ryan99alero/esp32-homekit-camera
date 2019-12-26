@@ -25,3 +25,12 @@ menuconfig`):
     * WiFi SSID and WiFi Password
     * Camera Pins
         * Select Camera Pinout = *your variant of module*
+        
+Patch xclk.c with esp32-camera.patch
+Executing patch -p 1 < esp32-camera.patch in directory of patch file.  In this case its esp32-camera.patch in the esp32-homekit-camera root directly.  With -p 1 it will show you the full directory path of the file its wanting to patch.  This file is also listed inside the patch file.
+
+For this patch. 
+
+cd /home/ryan/esp/esp32-homekit-camera/components/esp32-camera/driver
+
+patch < /home/ryan/esp/esp32-homekit-camera/esp32-camera.patch
