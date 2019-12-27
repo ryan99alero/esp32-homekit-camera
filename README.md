@@ -12,6 +12,9 @@ menuconfig`):
     * Partition Table = **Custom partition table CSV**
     * Custom partition CSV file = **partitions.csv**
 * Component config
+    * Driver Configuration
+        * Driver Configuration
+            * Support array 'rtc_gpio_desc' for ESP32 = **check**
     * ESP32-specific
         * Support for external, SPI-connected RAM = **check**
         * SPI RAM config
@@ -25,12 +28,12 @@ menuconfig`):
     * WiFi SSID and WiFi Password
     * Camera Pins
         * Select Camera Pinout = *your variant of module*
-        
-Patch xclk.c with esp32-camera.patch
-Executing patch -p 1 < esp32-camera.patch in directory of patch file.  In this case its esp32-camera.patch in the esp32-homekit-camera root directly.  With -p 1 it will show you the full directory path of the file its wanting to patch.  This file is also listed inside the patch file.
 
-For this patch. 
+## Patching script **esp32-camera.patch**
+Patch xclk.c with esp32-camera.patch
+Find file that patch needs to update by Executing **patch -p 1 < esp32-camera.patch** in directory of patch file.  In this case its file esp32-camera.patch in the esp32-homekit-camera root directly.  The -p 1 portion of cmd will show you the full directory path of the file its wanting to patch.  This file is also listed inside the patch file.
+
+For this patch with the obtained info we will do the following. 
 
 cd /home/ryan/esp/esp32-homekit-camera/components/esp32-camera/driver
-
 patch < /home/ryan/esp/esp32-homekit-camera/esp32-camera.patch
